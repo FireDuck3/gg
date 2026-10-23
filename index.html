@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ти не повіриш, що сталося далі… 😱</title>
+<meta name="description" content="Люди передивляються це відео знову і знову. Спершу здається, що нічого особливого. А потім…">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gg.onrender.com/">
+<meta property="og:title" content="Хлопець вийшов на сцену з мікрофоном. Те, що сталося далі, шокувало мільйони 😱">
+<meta property="og:description" content="Люди передивляються це відео знову і знову. Спершу здається, що нічого особливого. А потім…">
+<meta property="og:image" content="https://gg.onrender.com/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='4' y='14' width='56' height='36' rx='10' fill='%23ff1f2a'/%3E%3Cpath d='M27 23v18l15-9z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Manrope:wght@400;600;800&display=swap">
+<style>
+/* Layout: one narrow column styled like a viral-feed post; after the click it turns into a nightclub stage. */
+:root {
+  --bg: #eef0f5;
+  --surface: #ffffff;
+  --fg: #14161d;
+  --muted: #5a6072;
+  --line: #d9dce6;
+  --hot: #e3262c;
+  --hot-fg: #ffffff;
+  --mark: #ffd21f;
+  --focus: #1f5cff;
+  /* stage is a dark club in both themes */
+  --stage: #140d29;
+  --stage-fg: #f6f1ff;
+  --c1: #ff3d7f; --c2: #ffd23f; --c3: #3dd6ff; --c4: #9b5bff;
+  --coat: #c9a476; --coat-dark: #9a774c; --skin: #f0c8a3; --hair: #c4602a; --jeans: #2b3550; --shirt: #f4f1ea;
+  --font-display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --beat: .531s; /* 113 BPM */
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1016; --surface: #181b24; --fg: #eef0f6; --muted: #9aa1b4; --line: #2a2f3c;
+    --hot: #ff464c; --mark: rgba(255, 210, 31, .38); --focus: #8fb0ff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1016; --surface: #181b24; --fg: #eef0f6; --muted: #9aa1b4; --line: #2a2f3c;
+  --hot: #ff464c; --mark: rgba(255, 210, 31, .38); --focus: #8fb0ff;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: light; }
+[hidden] { display: none !important; }
+img { max-width: 100%; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  margin: 0;
+}
+.page {
+  max-width: 560px;
+  margin: 0 auto;
+  padding-block: 20px 48px;
+}
+button, a { font: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+/* ---------- bait ---------- */
+.bait, .reveal { display: grid; gap: 14px; }
+.meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); }
+.chip {
+  background: var(--hot); color: var(--hot-fg);
+  font-weight: 800; font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 999px;
+}
+.chip::before { content: "● "; animation: blink 1s steps(2) infinite; }
+h1, h2 { font-family: var(--font-display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(1.3rem, 5.2vw, 1.9rem); line-height: 1.22; font-weight: 800; }
+h1 mark { background: linear-gradient(transparent 52%, var(--mark) 52%); color: inherit; padding: 0 2px; }
+.lede { margin: 0; color: var(--muted); max-width: 60ch; }
+
+.thumb {
+  position: relative; display: block; width: 100%; max-width: 100%;
+  aspect-ratio: 16 / 9; border: 0; padding: 0; border-radius: 16px; overflow: hidden; cursor: pointer;
+  background:
+    radial-gradient(circle at 22% 28%, #ff5d8f 0, transparent 46%),
+    radial-gradient(circle at 78% 36%, #6a5cff 0, transparent 50%),
+    radial-gradient(circle at 50% 110%, #ffb23f 0, transparent 55%),
+    #1a1230;
+}
+.thumb .sil { position: absolute; left: 50%; bottom: -4%; height: 92%; transform: translateX(-50%); filter: blur(5px); opacity: .9; }
+.thumb .ring {
+  position: absolute; left: 50%; top: 6%; width: 22%; aspect-ratio: 1; transform: translateX(-62%);
+  border: 4px solid #ff2a2a; border-radius: 50%; box-shadow: 0 0 0 2px rgba(0,0,0,.25);
+}
+.thumb .arrow { position: absolute; right: 9%; top: 12%; width: 22%; filter: drop-shadow(0 2px 3px rgba(0,0,0,.4)); }
+.thumb .play {
+  position: absolute; left: 50%; top: 50%; width: 68px; height: 48px; transform: translate(-50%, -50%);
+  background: #ff1f2a; border-radius: 14px; box-shadow: 0 6px 18px rgba(0,0,0,.35); transition: transform .15s;
+}
+.thumb .play::after {
+  content: ""; position: absolute; left: 27px; top: 13px;
+  border-left: 20px solid #fff; border-top: 11px solid transparent; border-bottom: 11px solid transparent;
+}
+.thumb:hover .play { transform: translate(-50%, -50%) scale(1.08); }
+.thumb .tag, .thumb .dur {
+  position: absolute; font-weight: 800; font-size: 12px; color: #fff; background: rgba(0,0,0,.72);
+  padding: 3px 7px; border-radius: 6px; font-variant-numeric: tabular-nums;
+}
+.thumb .tag { left: 10px; top: 10px; background: #ff1f2a; letter-spacing: .06em; }
+.thumb .dur { right: 10px; bottom: 10px; }
+
+.stats { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.stats b { color: var(--fg); }
+
+.cta {
+  border: 0; border-radius: 14px; cursor: pointer;
+  background: var(--hot); color: var(--hot-fg);
+  font-family: var(--font-display); font-weight: 800; font-size: 1.05rem;
+  padding: 16px 20px; width: 100%;
+  box-shadow: 0 6px 0 color-mix(in srgb, var(--hot) 60%, #000);
+  animation: nudge 1.6s ease-in-out infinite;
+}
+.cta:active { transform: translateY(4px); box-shadow: 0 2px 0 color-mix(in srgb, var(--hot) 60%, #000); }
+.timer { margin: 0; text-align: center; font-size: 14px; color: var(--muted); }
+.timer b { color: var(--hot); font-variant-numeric: tabular-nums; }
+
+/* ---------- reveal ---------- */
+.kicker { margin: 0; font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--hot); }
+h2 { font-size: clamp(1.5rem, 7vw, 2.5rem); line-height: 1.1; }
+
+.stage {
+  position: relative; width: 100%; max-width: 100%; aspect-ratio: 4 / 3;
+  border-radius: 18px; overflow: hidden; color: var(--stage-fg);
+  background: radial-gradient(ellipse at 50% 0%, #3a1f6e 0, var(--stage) 70%);
+}
+.stage[data-mode="video"] { aspect-ratio: 16 / 9; background: #000; }
+.video, .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video { z-index: 3; }
+.video:empty { display: none; }
+
+.club { position: absolute; inset: 0; }
+.ball {
+  position: absolute; left: 50%; top: 5%; width: 11%; aspect-ratio: 1; transform: translateX(-50%); border-radius: 50%; z-index: 2;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,.9) 0, transparent 30%),
+    repeating-conic-gradient(#e3e5ef 0 12deg, #7d8296 12deg 24deg);
+  box-shadow: 0 0 24px rgba(255,255,255,.35);
+  animation: spin 3s linear infinite;
+}
+.club::before { content: ""; position: absolute; left: 50%; top: 0; width: 2px; height: 6%; margin-left: -1px; background: #8a86a0; z-index: 2; }
+.beam {
+  position: absolute; top: -8%; left: 50%; width: 46%; height: 120%; margin-left: -23%;
+  transform-origin: 50% 0; mix-blend-mode: screen; opacity: .55;
+  clip-path: polygon(46% 0, 54% 0, 100% 100%, 0 100%);
+}
+.b1 { background: linear-gradient(var(--c1), transparent 85%); animation: swing1 calc(var(--beat) * 4) ease-in-out infinite; }
+.b2 { background: linear-gradient(var(--c3), transparent 85%); animation: swing2 calc(var(--beat) * 4) ease-in-out infinite; }
+.b3 { background: linear-gradient(var(--c2), transparent 85%); animation: swing3 calc(var(--beat) * 8) ease-in-out infinite; opacity: .35; }
+.floor {
+  position: absolute; left: -12%; right: -12%; bottom: 0; height: 32%;
+  display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: repeat(2, 1fr); gap: 3px;
+  transform: perspective(260px) rotateX(50deg); transform-origin: 50% 100%;
+}
+.floor i { background: var(--c4); opacity: .25; animation: tile calc(var(--beat) * 4) steps(1) infinite; }
+.floor i:nth-child(3n+1) { background: var(--c1); animation-delay: calc(var(--beat) * -1); }
+.floor i:nth-child(3n+2) { background: var(--c3); animation-delay: calc(var(--beat) * -2); }
+.floor i:nth-child(4n) { background: var(--c2); animation-delay: calc(var(--beat) * -3); }
+
+.rick { position: absolute; left: 50%; bottom: 3%; height: 80%; width: auto; aspect-ratio: 200 / 260; transform: translateX(-50%); z-index: 2; overflow: visible; }
+.rick g, .rick ellipse { transform-box: view-box; }
+.rick .sway { transform-origin: 100px 246px; animation: sway calc(var(--beat) * 2) ease-in-out infinite; }
+.rick .upper { animation: bob var(--beat) ease-in-out infinite; }
+.rick .leg { transform-origin: 100px 247px; animation: knee calc(var(--beat) * 2) ease-in-out infinite; }
+.rick .leg-r { animation-delay: calc(var(--beat) * -1); }
+.rick .arm-free { transform-origin: 131px 94px; animation: armswing calc(var(--beat) * 2) ease-in-out infinite; }
+.rick .arm-mic { transform-origin: 72px 94px; animation: micarm calc(var(--beat) * 2) ease-in-out infinite; }
+.rick .head { transform-origin: 100px 80px; animation: headtilt calc(var(--beat) * 2) ease-in-out infinite; }
+.rick .mouth { transform-origin: 100px 67px; animation: sing calc(var(--beat) / 2) ease-in-out infinite alternate; }
+.rick .shadow { transform-origin: 100px 248px; animation: shadow var(--beat) ease-in-out infinite; }
+
+.note { position: absolute; bottom: 30%; font-size: clamp(18px, 5vw, 28px); opacity: 0; z-index: 1; animation: rise 3.2s ease-out infinite; }
+.n1 { left: 14%; color: var(--c2); }
+.n2 { left: 78%; color: var(--c1); animation-delay: -1.1s; }
+.n3 { left: 26%; color: var(--c3); animation-delay: -2.2s; }
+.n4 { left: 68%; color: var(--c2); animation-delay: -.6s; }
+
+.song { margin: 0; font-weight: 800; }
+.explain { margin: 0; color: var(--muted); max-width: 60ch; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  min-height: 46px; padding: 10px 16px; border-radius: 12px; cursor: pointer; text-decoration: none;
+  font-weight: 800; font-size: 15px;
+  background: var(--surface); color: var(--fg); border: 1.5px solid var(--line);
+}
+.btn-primary { background: var(--hot); color: var(--hot-fg); border-color: var(--hot); }
+.btn:hover { border-color: var(--fg); }
+.btn-primary:hover { border-color: var(--hot); filter: brightness(1.06); }
+
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes nudge { 0%, 80%, 100% { transform: none; } 85% { transform: rotate(-1.5deg); } 90% { transform: rotate(1.5deg); } 95% { transform: rotate(-1deg); } }
+@keyframes spin { to { transform: translateX(-50%) rotate(360deg); } }
+@keyframes swing1 { 0%, 100% { transform: rotate(-32deg); } 50% { transform: rotate(18deg); } }
+@keyframes swing2 { 0%, 100% { transform: rotate(30deg); } 50% { transform: rotate(-16deg); } }
+@keyframes swing3 { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(8deg); } }
+@keyframes tile { 0% { opacity: .25; } 25% { opacity: .9; } 50% { opacity: .35; } 75% { opacity: .7; } }
+@keyframes sway { 0%, 100% { transform: translateX(-8px) rotate(-2deg); } 50% { transform: translateX(8px) rotate(2deg); } }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+@keyframes knee { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(.9); } }
+@keyframes armswing { 0%, 100% { transform: rotate(-22deg); } 50% { transform: rotate(26deg); } }
+@keyframes micarm { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(5deg); } }
+@keyframes headtilt { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
+@keyframes sing { from { transform: scaleY(.35); } to { transform: scaleY(1.15); } }
+@keyframes shadow { 0%, 100% { transform: scaleX(1); } 50% { transform: scaleX(.88); } }
+@keyframes rise { 0% { opacity: 0; transform: translateY(0) rotate(-10deg); } 15% { opacity: 1; } 100% { opacity: 0; transform: translateY(-140px) rotate(14deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .chip::before, .cta, .ball, .beam, .floor i, .note { animation: none !important; }
+  .note { opacity: .8; }
+  .rick * { animation-duration: calc(var(--beat) * 6) !important; }
+}
+</style>
+</head>
+<body>
+<main class="page">
+  <section class="bait" id="bait" aria-labelledby="bait-title">
+    <div class="meta">
+      <span class="chip">Вірусне</span>
+      <span>щойно · 12 408 коментарів</span>
+    </div>
+    <h1 id="bait-title">Хлопець вийшов на сцену з мікрофоном. <mark>Те, що сталося далі,</mark> шокувало мільйони 😱</h1>
+    <p class="lede">Люди передивляються це відео знову і знову. Спершу здається, що нічого особливого. А потім…</p>
+
+    <button class="thumb" id="thumb" type="button" aria-label="Дивитись відео">
+      <svg class="sil" viewBox="0 0 200 260" aria-hidden="true">
+        <g fill="#0b0716">
+          <ellipse cx="104" cy="30" rx="20" ry="11"/>
+          <circle cx="100" cy="56" r="22"/>
+          <path d="M72 86 H128 L142 260 H58 Z"/>
+          <polyline points="72,94 62,124 84,98" fill="none" stroke="#0b0716" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="90" cy="76" r="7"/>
+        </g>
+      </svg>
+      <span class="ring" aria-hidden="true"></span>
+      <svg class="arrow" viewBox="0 0 100 60" aria-hidden="true">
+        <path d="M96 8 L34 30 L40 16 L4 44 L46 52 L38 40 L98 20 Z" fill="#ff2a2a" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>
+      </svg>
+      <span class="tag">Ексклюзив</span>
+      <span class="play" aria-hidden="true"></span>
+      <span class="dur">3:33</span>
+    </button>
+
+    <div class="stats">
+      <span><b>1,6 млрд</b> переглядів</span>
+      <span>😱 <b>214 тис.</b></span>
+      <span>😂 <b>98 тис.</b></span>
+      <span>🔥 <b>51 тис.</b></span>
+    </div>
+
+    <button class="cta" id="cta" type="button">▶ Дивитись відео</button>
+    <p class="timer">Відео можуть видалити через <b id="countdown">4:59</b></p>
+  </section>
+
+  <section class="reveal" id="reveal" aria-labelledby="reveal-title" hidden>
+    <p class="kicker">Розіграш вдався</p>
+    <h2 id="reveal-title">Тебе зарікролили! 🎤</h2>
+
+    <div class="stage" id="stage" data-mode="video">
+      <div class="video" id="video"></div>
+      <div class="club" aria-hidden="true">
+        <span class="beam b1"></span><span class="beam b2"></span><span class="beam b3"></span>
+        <div class="ball"></div>
+        <div class="floor"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <span class="note n1">♪</span><span class="note n2">♫</span><span class="note n3">♫</span><span class="note n4">♪</span>
+        <svg class="rick" viewBox="0 0 200 260">
+          <ellipse class="shadow" cx="100" cy="248" rx="46" ry="7" fill="rgba(0,0,0,.45)"/>
+          <g class="sway">
+            <g class="leg leg-l">
+              <rect x="79" y="182" width="17" height="60" rx="6" fill="var(--jeans)"/>
+              <ellipse cx="85" cy="243" rx="13" ry="5.5" fill="#15151b"/>
+            </g>
+            <g class="leg leg-r">
+              <rect x="104" y="182" width="17" height="60" rx="6" fill="var(--jeans)"/>
+              <ellipse cx="115" cy="243" rx="13" ry="5.5" fill="#15151b"/>
+            </g>
+            <g class="upper">
+              <g class="arm-free">
+                <rect x="125" y="90" width="13" height="64" rx="6.5" fill="var(--coat-dark)"/>
+                <circle cx="131.5" cy="157" r="7" fill="var(--skin)"/>
+              </g>
+              <g class="torso">
+                <path d="M72 86 H128 L142 192 H58 Z" fill="var(--coat)"/>
+                <path d="M90 86 H110 L100 116 Z" fill="var(--shirt)"/>
+                <path d="M90 86 L100 118 L84 126 L78 92 Z" fill="var(--coat-dark)"/>
+                <path d="M110 86 L100 118 L116 126 L122 92 Z" fill="var(--coat-dark)"/>
+                <path d="M100 118 V192" stroke="var(--coat-dark)" stroke-width="2"/>
+                <rect x="63" y="146" width="74" height="7" fill="var(--coat-dark)"/>
+                <circle cx="107" cy="134" r="2.4" fill="var(--coat-dark)"/>
+                <circle cx="107" cy="166" r="2.4" fill="var(--coat-dark)"/>
+              </g>
+              <g class="head">
+                <rect x="94" y="72" width="12" height="16" fill="var(--skin)"/>
+                <circle cx="79.5" cy="58" r="4.5" fill="var(--skin)"/>
+                <circle cx="120.5" cy="58" r="4.5" fill="var(--skin)"/>
+                <circle cx="100" cy="56" r="21" fill="var(--skin)"/>
+                <path d="M78 54 C75 32 90 22 106 24 C122 22 129 36 122 52 C118 42 108 39 98 41 C90 42 83 47 78 54 Z" fill="var(--hair)"/>
+                <ellipse cx="104" cy="28" rx="19" ry="10" fill="var(--hair)"/>
+                <path d="M88 50 h7 M105 50 h7" stroke="#6b3a1c" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="92" cy="56" r="2.2" fill="#1b1b22"/>
+                <circle cx="108" cy="56" r="2.2" fill="#1b1b22"/>
+                <ellipse class="mouth" cx="100" cy="67" rx="4.5" ry="3.2" fill="#7a1f24"/>
+              </g>
+              <g class="arm-mic">
+                <polyline points="72,94 62,124 84,98" fill="none" stroke="var(--coat-dark)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="84" y1="98" x2="89" y2="80" stroke="#2a2a33" stroke-width="5" stroke-linecap="round"/>
+                <circle cx="90" cy="76" r="6" fill="#a3a8b5"/>
+                <path d="M86 74 h8 M86 77.5 h8" stroke="#6d7280" stroke-width="1"/>
+                <circle cx="84" cy="98" r="7" fill="var(--skin)"/>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <p class="song">Rick Astley — «Never Gonna Give You Up», 1987</p>
+    <p class="explain">Рікрол — один з найстаріших розіграшів інтернету. Людині обіцяють щось шокуюче, а відкривається цей кліп, де чувак з мікрофоном танцює під свій хіт.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">Дивитись на YouTube ↗</a>
+      <button class="btn" id="mute" type="button" hidden>🔇 Вимкнути біт</button>
+      <button class="btn" id="again" type="button">↺ Розіграти ще раз</button>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var YT = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0&playsinline=1";
+  var bait = document.getElementById("bait");
+  var reveal = document.getElementById("reveal");
+  var stage = document.getElementById("stage");
+  var video = document.getElementById("video");
+  var muteBtn = document.getElementById("mute");
+  var dancing = false;
+
+  // Clickbait countdown: loops forever, the video is never actually deleted.
+  var left = 299, countdown = document.getElementById("countdown");
+  setInterval(function () {
+    left = left > 0 ? left - 1 : 299;
+    countdown.textContent = Math.floor(left / 60) + ":" + String(left % 60).padStart(2, "0");
+  }, 1000);
+
+  // ---- generic disco beat (drums only), plays when the video can't be embedded ----
+  var ctx = null, master = null, noiseBuf = null, ticker = null, nextTime = 0, step = 0, muted = false;
+  var STEP = 60 / 113 / 2; // eighth notes at 113 BPM
+
+  function ensureAudio() {
+    try {
+      if (!ctx) {
+        ctx = new (window.AudioContext || window.webkitAudioContext)();
+        master = ctx.createGain();
+        master.gain.value = 0.35;
+        master.connect(ctx.destination);
+        noiseBuf = ctx.createBuffer(1, ctx.sampleRate * 0.5, ctx.sampleRate);
+        var d = noiseBuf.getChannelData(0);
+        for (var i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+      }
+      if (ctx.state === "suspended") ctx.resume();
+    } catch (e) { ctx = null; }
+  }
+  function kick(t) {
+    var o = ctx.createOscillator(), g = ctx.createGain();
+    o.frequency.setValueAtTime(140, t);
+    o.frequency.exponentialRampToValueAtTime(42, t + 0.14);
+    g.gain.setValueAtTime(0.9, t);
+    g.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
+    o.connect(g).connect(master);
+    o.start(t); o.stop(t + 0.32);
+  }
+  function hiss(t, dur, type, freq, vol) {
+    var s = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain();
+    s.buffer = noiseBuf; f.type = type; f.frequency.value = freq;
+    g.gain.setValueAtTime(vol, t);
+    g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+    s.connect(f).connect(g).connect(master);
+    s.start(t); s.stop(t + dur + 0.02);
+  }
+  function schedule() {
+    while (nextTime < ctx.currentTime + 0.12) {
+      if (step % 2 === 0) kick(nextTime);                       // four on the floor
+      else hiss(nextTime, 0.09, "highpass", 7000, 0.25);        // off-beat hat
+      if (step === 2 || step === 6) hiss(nextTime, 0.16, "bandpass", 1800, 0.55); // clap on 2 and 4
+      nextTime += STEP;
+      step = (step + 1) % 8;
+    }
+  }
+  function startBeat() {
+    if (!ctx || ticker) return;
+    nextTime = ctx.currentTime + 0.05; step = 0;
+    ticker = setInterval(schedule, 25);
+    schedule();
+  }
+  function stopBeat() { clearInterval(ticker); ticker = null; }
+
+  function showDance() {
+    if (dancing || reveal.hidden) return;
+    dancing = true;
+    video.replaceChildren();
+    stage.dataset.mode = "dance";
+    if (ctx) { muteBtn.hidden = false; startBeat(); }
+  }
+
+  // If a host or network blocks the YouTube iframe, CSP reports it here.
+  document.addEventListener("securitypolicyviolation", function (e) {
+    var dir = e.effectiveDirective || e.violatedDirective || "";
+    if (/frame-src|child-src/.test(dir) || /youtube/.test(String(e.blockedURI))) showDance();
+  });
+
+  function open() {
+    ensureAudio();
+    bait.hidden = true;
+    reveal.hidden = false;
+    dancing = false;
+    stage.dataset.mode = "video";
+    var f = document.createElement("iframe");
+    f.title = "Rick Astley — Never Gonna Give You Up";
+    f.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+    f.allowFullscreen = true;
+    f.referrerPolicy = "strict-origin-when-cross-origin";
+    f.src = YT;
+    video.replaceChildren(f);
+    window.scrollTo(0, 0);
+  }
+
+  document.getElementById("thumb").addEventListener("click", open);
+  document.getElementById("cta").addEventListener("click", open);
+
+  muteBtn.addEventListener("click", function () {
+    muted = !muted;
+    if (master) master.gain.value = muted ? 0 : 0.35;
+    muteBtn.textContent = muted ? "🔈 Увімкнути біт" : "🔇 Вимкнути біт";
+  });
+
+  document.getElementById("again").addEventListener("click", function () {
+    stopBeat();
+    video.replaceChildren();
+    dancing = false;
+    muteBtn.hidden = true;
+    reveal.hidden = true;
+    bait.hidden = false;
+    window.scrollTo(0, 0);
+  });
+})();
+</script>
+</body>
+</html>

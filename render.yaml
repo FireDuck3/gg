@@ -1,0 +1,5 @@
+services:
+  - type: web
+    name: gg
+    runtime: static
+    staticPublishPath: .
